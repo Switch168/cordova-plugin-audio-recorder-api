@@ -107,7 +107,6 @@ public class AudioRecorderAPI extends CordovaPlugin {
 
   private void stopRecord(final CallbackContext callbackContext) {
     myRecorder.stop();
-    myRecorder.release();
     cordova.getThreadPool().execute(new Runnable() {
       public void run() {
         callbackContext.success(outputFile);
