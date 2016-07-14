@@ -68,7 +68,7 @@ Copy File to Another Place
 
 Example with file plugin: http://ngcordova.com/docs/plugins/file/
 
-iOS: `/var/mobile/Applications/<UUID>/Documents/new_file.m4a`
+iOS: `/var/mobile/Applications/<UUID>/tmp/new_file.m4a`
 Android: `<sdcard>/new_file.m4a`
 
 ```javascript
@@ -76,7 +76,7 @@ window.plugins.audioRecorderAPI.record(function(savedFilePath) {
   var fileName = savedFilePath.split('/')[savedFilePath.split('/').length - 1];
   var directory;
   if (cordova.file.documentsDirectory) {
-    directory = cordova.file.documentsDirectory; // for iOS
+    directory = cordova.file.tempDirectory; // for iOS
   } else {
     directory = cordova.file.externalRootDirectory; // for Android
   }
